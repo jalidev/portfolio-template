@@ -1,47 +1,128 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jameel Ali | Developer Portfolio Template</title>
+<title>Jameel Ali | Full Stack Developer</title>
+<meta name="description" content="Jameel Ali builds custom web platforms, POS systems and e-commerce with Laravel, React and MySQL.">
 <style>
-:root{--bg:#0f172a;--card:#1e293b;--ac:#38bdf8;--tx:#e2e8f0;--mu:#94a3b8}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Tahoma,sans-serif;background:var(--bg);color:var(--tx);line-height:1.6}
-.w{max-width:960px;margin:auto;padding:0 20px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}nav a{color:var(--mu);margin-inline-start:16px;text-decoration:none}
-nav a:hover{color:var(--ac)}.logo{font-weight:700;color:var(--ac)}
-header{padding:70px 0 50px}h1{font-size:2.6rem;margin:0 0 12px}h1 span{color:var(--ac)}
-p.lead{color:var(--mu);max-width:560px}.btn{display:inline-block;background:var(--ac);color:#0f172a;padding:10px 22px;border-radius:8px;font-weight:600;text-decoration:none;margin-top:12px}
-section{padding:40px 0}h2{border-inline-start:4px solid var(--ac);padding-inline-start:12px}
-.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.c{background:var(--card);border-radius:12px;padding:20px}.c h3{margin-top:0}.c p{color:var(--mu);margin:0}
-.st{display:flex;gap:30px;flex-wrap:wrap;margin-top:28px}.st b{display:block;font-size:1.8rem;color:var(--ac)}
-.t span{display:inline-block;background:#0b1220;border:1px solid #334155;border-radius:999px;padding:4px 14px;margin:4px;color:var(--mu)}
-footer{text-align:center;color:var(--mu);padding:30px 0;border-top:1px solid #334155;margin-top:30px}
+:root{--bg:#0b0b0f;--fg:#f4f1ea;--mut:#8d8b94;--line:#25252d;--ac:#c6ff3d;--ac2:#7c5cff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:"Inter","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(600px 400px at 85% 8%,rgba(124,92,255,.22),transparent 70%),radial-gradient(500px 380px at 5% 60%,rgba(198,255,61,.07),transparent 70%);z-index:-1}
+a{color:inherit;text-decoration:none}
+.w{max-width:1180px;margin:0 auto;padding:0 28px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:28px 0;font-size:14px}
+.logo{font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--ac);box-shadow:0 0 18px var(--ac)}
+nav .l{display:flex;gap:32px;color:var(--mut)}
+nav .l a:hover{color:var(--fg)}
+.lg{display:flex;gap:4px;border:1px solid var(--line);border-radius:99px;padding:4px}.lg button{background:none;border:0;color:var(--mut);font:inherit;font-size:13px;padding:7px 14px;border-radius:99px;cursor:pointer;transition:.2s}.lg button:hover{color:var(--fg)}.lg button.on{background:var(--ac);color:#0b0b0f;font-weight:600}
+.pill{border:1px solid var(--line);padding:9px 18px;border-radius:99px;transition:.25s}
+.pill:hover{background:var(--ac);color:#0b0b0f;border-color:var(--ac)}
+.hero{padding:110px 0 90px}
+.tag{display:inline-flex;gap:8px;align-items:center;color:var(--mut);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:30px}
+.tag:before{content:"";width:28px;height:1px;background:var(--mut)}
+h1{font-size:clamp(46px,9vw,128px);line-height:.95;letter-spacing:-.045em;font-weight:800;max-width:1000px}
+h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--fg)}
+h1 span{color:var(--ac)}
+.sub{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-end;margin-top:64px}
+.sub p{max-width:440px;color:var(--mut);font-size:18px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{background:var(--ac);color:#0b0b0f;padding:16px 28px;border-radius:99px;font-weight:600;transition:.25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px -10px var(--ac)}
+.btn.o{background:none;color:var(--fg);border:1px solid var(--line)}
+.btn.o:hover{box-shadow:none;border-color:var(--fg)}
+.mq{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:22px 0}
+.mq div{display:inline-flex;gap:56px;animation:m 28s linear infinite;font-size:clamp(22px,3vw,34px);font-weight:700;letter-spacing:-.02em;color:#3b3b45}
+.mq b{color:var(--fg);font-weight:700}
+@keyframes m{to{transform:translateX(-50%)}}
+section{padding:120px 0 0}
+.hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:48px;gap:20px;flex-wrap:wrap}
+h2{font-size:clamp(32px,5vw,60px);letter-spacing:-.035em;line-height:1}
+.hd small{color:var(--mut);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.card{background:linear-gradient(160deg,#14141b,#0f0f14);border:1px solid var(--line);border-radius:24px;padding:32px;min-height:240px;display:flex;flex-direction:column;justify-content:space-between;transition:.35s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:#44444f}
+.card:after{content:"";position:absolute;width:220px;height:220px;right:-80px;top:-80px;border-radius:50%;background:var(--ac2);filter:blur(80px);opacity:0;transition:.4s}
+.card:hover:after{opacity:.35}
+.c1{grid-column:span 3}.c2{grid-column:span 3}.c3{grid-column:span 2}.c4{grid-column:span 4}
+.num{font-size:13px;color:var(--ac);letter-spacing:.1em}
+.card h3{font-size:28px;letter-spacing:-.025em;line-height:1.1;margin:40px 0 10px}
+.card p{color:var(--mut)}
+.work a{display:grid;grid-template-columns:70px 1fr auto;gap:24px;align-items:center;padding:34px 0;border-top:1px solid var(--line);transition:.3s}
+.work a:last-child{border-bottom:1px solid var(--line)}
+.work a:hover{padding-left:18px;background:linear-gradient(90deg,rgba(198,255,61,.07),transparent)}
+.work .n{color:var(--mut);font-size:14px}
+.work h3{font-size:clamp(24px,3.6vw,44px);letter-spacing:-.03em;line-height:1.05}
+.work p{color:var(--mut);margin-top:8px}
+.work .ar{font-size:30px;transition:.3s}
+.work a:hover .ar{transform:translateX(8px) rotate(-45deg);color:var(--ac)}
+.stack{display:flex;flex-wrap:wrap;gap:12px}
+.stack span{border:1px solid var(--line);border-radius:99px;padding:14px 26px;font-size:18px;transition:.25s}
+.stack span:hover{background:var(--fg);color:#0b0b0f}
+.stats{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
+.stat{border:1px solid var(--line);border-radius:24px;padding:32px}
+.stat b{display:block;font-size:clamp(48px,7vw,88px);letter-spacing:-.05em;line-height:1;color:var(--ac)}
+.stat span{color:var(--mut)}
+.end{margin-top:140px;padding:90px 40px;border-radius:36px;background:var(--ac);color:#0b0b0f;text-align:center}
+.end h2{font-size:clamp(38px,7vw,96px);letter-spacing:-.045em;line-height:.95}
+.end p{margin:24px auto 36px;max-width:480px;font-size:18px;opacity:.75}
+.end .btn{background:#0b0b0f;color:var(--fg);margin:4px}
+.end .btn:hover{box-shadow:0 14px 40px -10px #000}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:40px 0;color:var(--mut);font-size:13px}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+[dir=rtl] .work a:hover{padding-left:0;padding-right:18px;background:linear-gradient(270deg,rgba(198,255,61,.07),transparent)}[dir=rtl] .work a:hover .ar{transform:translateX(-8px) rotate(45deg)}[dir=rtl] .ar{display:inline-block;transform:scaleX(-1)}[dir=rtl] .tag:before{order:2}[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h3{letter-spacing:0}[dir=rtl] h1 em{-webkit-text-stroke:0;color:var(--fg)}.mq{direction:ltr}.stat b{direction:ltr;unicode-bidi:isolate;text-align:start}[dir=rtl] .stat b{text-align:right}
+@media(max-width:760px){nav .l{display:none}.hero{padding:70px 0 60px}.c1,.c2,.c3,.c4{grid-column:span 6}.work a{grid-template-columns:36px 1fr;}.work .ar{display:none}section{padding-top:80px}.end{padding:60px 22px;margin-top:90px}.end .btn{display:block;margin:10px 0}}
+@media(prefers-reduced-motion:reduce){.mq div{animation:none}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <div class="w">
-<nav><span class="logo">&lt;JA/&gt;</span><div><a href="#services">Services</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></nav>
-<header>
-<h1>Hi, I'm <span>Jameel Ali</span><br>Full Stack Developer</h1>
-<p class="lead">Custom websites, multilingual platforms and digital solutions, built clean and fast for businesses that want to stand out.</p>
-<a class="btn" href="#contact">Get in touch</a>
-<div class="st"><div><b>50+</b>Projects</div><div><b>3</b>Languages</div></div>
+<nav><a class="logo" href="#"><i></i>Jameel Ali</a><div class="l"><a href="#services" data-t="nav1">Services</a><a href="#work" data-t="nav2">Work</a><a href="#stack" data-t="nav3">Stack</a></div><div class="lg"><button data-l="en">EN</button><button data-l="ar">عربي</button><button data-l="fr">FR</button></div></nav>
+<header class="hero">
+<div class="tag" data-t="tag">Full Stack Developer</div>
+<h1 data-t="h1" data-html>I build <em>digital</em> products that <span>work</span> for business.</h1>
+<div class="sub"><p data-t="sub">Custom web platforms, POS systems and online stores. Clean code in Laravel, React and MySQL, built for speed and growth.</p>
+<div class="cta"><a class="btn" href="#contact" data-t="cta1">Start a project</a><a class="btn o" href="#work" data-t="cta2">See work</a></div></div>
 </header>
-<section id="services"><h2>Services</h2><div class="g">
-<div class="c"><h3>Custom Web Development</h3><p>Fast, secure, scalable web apps.</p></div>
-<div class="c"><h3>E-Commerce</h3><p>Online stores with inventory and secure payments.</p></div>
-<div class="c"><h3>Database Design</h3><p>Optimized relational databases.</p></div>
-</div></section>
-<section id="work"><h2>Selected Work</h2><div class="g">
-<div class="c"><h3>POS &amp; Sales Management</h3><p>Invoices, inventory and sales reports. PHP, Laravel, Vue.js</p></div>
-<div class="c"><h3>E-Commerce Platform</h3><p>Online store platform.</p></div>
-<div class="c"><h3>SaaS Dashboard</h3><p>CRM for managing customers.</p></div>
-</div></section>
-<section id="skills"><h2>Skills</h2><div class="t"><span>Laravel</span><span>PHP</span><span>React</span><span>Vue.js</span><span>MySQL</span><span>Tailwind</span></div></section>
-<section id="contact"><h2>Contact</h2><p class="lead">Have a project in mind? Visit <a style="color:var(--ac)" href="https://jamelali.com">jamelali.com</a> or <a style="color:var(--ac)" href="https://jidev.site">jidev.site</a>.</p></section>
-<footer>&copy; Jameel Ali. Sample template based on jamelali.com and jidev.site.</footer>
 </div>
+<div class="mq" aria-hidden="true"><div><span><b>Laravel</b></span><span>React</span><span><b>MySQL</b></span><span>Tailwind</span><span><b>PHP</b></span><span>Vue.js</span><span><b>Laravel</b></span><span>React</span><span><b>MySQL</b></span><span>Tailwind</span><span><b>PHP</b></span><span>Vue.js</span><span><b>Laravel</b></span><span>React</span><span><b>MySQL</b></span><span>Tailwind</span><span><b>PHP</b></span><span>Vue.js</span><span><b>Laravel</b></span><span>React</span><span><b>MySQL</b></span><span>Tailwind</span><span><b>PHP</b></span><span>Vue.js</span></div></div>
+<div class="w">
+<section id="services"><div class="hd rv"><h2 data-t="h2a">What I do</h2><small data-t="sa">Services</small></div>
+<div class="bento rv">
+<div class="card c1"><span class="num">01</span><div><h3 data-t="s1t">Custom web development</h3><p data-t="s1p">Fast, secure and scalable web apps made for your process.</p></div></div>
+<div class="card c2"><span class="num">02</span><div><h3 data-t="s2t">E-commerce</h3><p data-t="s2p">Online stores with inventory and secure payments.</p></div></div>
+<div class="card c4"><span class="num">03</span><div><h3 data-t="s3t">Database design</h3><p data-t="s3p">Optimized relational databases that stay fast as your data grows.</p></div></div>
+<div class="card c3"><span class="num">04</span><div><h3 data-t="s4t">Multilingual platforms</h3><p data-t="s4p">Platforms built to serve users in more than one language.</p></div></div>
+</div></section>
+<section id="work"><div class="hd rv"><h2 data-t="h2b">Selected work</h2><small data-t="sb">Projects</small></div>
+<div class="work rv">
+<a href="#contact"><span class="n">01</span><div><h3 data-t="w1t">POS &amp; sales management</h3><p data-t="w1p">Invoices, inventory and sales reports. PHP, Laravel, Vue.js</p></div><span class="ar">&rarr;</span></a>
+<a href="#contact"><span class="n">02</span><div><h3 data-t="w2t">E-commerce platform</h3><p data-t="w2p">Online store platform.</p></div><span class="ar">&rarr;</span></a>
+<a href="#contact"><span class="n">03</span><div><h3 data-t="w3t">CRM dashboard (SaaS)</h3><p data-t="w3p">Manage customers in one place.</p></div><span class="ar">&rarr;</span></a>
+</div>
+<div class="stats rv"><div class="stat"><b>50+</b><span data-t="st">Projects delivered</span></div></div>
+</section>
+<section id="stack"><div class="hd rv"><h2 data-t="h2c">Tools I use</h2><small data-t="sc">Stack</small></div>
+<div class="stack rv"><span>Laravel</span><span>PHP</span><span>React</span><span>Vue.js</span><span>MySQL</span><span>Tailwind CSS</span></div></section>
+<section id="contact"><div class="end rv"><h2 data-t="h2d">Have a project in mind?</h2><p data-t="ep">Tell me what you need and let's build it.</p><a class="btn" href="https://jamelali.com">jamelali.com</a><a class="btn" href="https://jidev.site">jidev.site</a></div></section>
+<footer><span>&copy; Jameel Ali</span><span data-t="ft">Sample design based on jamelali.com and jidev.site</span></footer>
+</div>
+<script>
+var T={"ar": {"nav1": "الخدمات", "nav2": "الأعمال", "nav3": "الأدوات", "tag": "مطوّر Full Stack", "h1": "أبني منتجات <em>رقمية</em> <span>تخدم</span> أعمالك.", "sub": "منصات ويب مخصصة، وأنظمة نقاط بيع، ومتاجر إلكترونية. كود نظيف بـ Laravel وReact وMySQL، مبني للسرعة والنمو.", "cta1": "ابدأ مشروعك", "cta2": "شاهد الأعمال", "h2a": "ماذا أقدّم", "sa": "الخدمات", "s1t": "تطوير ويب مخصص", "s1p": "تطبيقات ويب سريعة وآمنة وقابلة للتوسع، مصممة حسب طريقة عملك.", "s2t": "التجارة الإلكترونية", "s2p": "متاجر إلكترونية مع إدارة المخزون ومدفوعات آمنة.", "s3t": "تصميم قواعد البيانات", "s3p": "قواعد بيانات علائقية محسّنة تبقى سريعة مع نمو بياناتك.", "s4t": "منصات متعددة اللغات", "s4p": "منصات مبنية لخدمة المستخدمين بأكثر من لغة.", "h2b": "أعمال مختارة", "sb": "المشاريع", "w1t": "نظام نقاط بيع وإدارة مبيعات", "w1p": "فواتير ومخزون وتقارير مبيعات. PHP وLaravel وVue.js", "w2t": "منصة تجارة إلكترونية", "w2p": "منصة متجر إلكتروني.", "w3t": "لوحة CRM (SaaS)", "w3p": "إدارة العملاء في مكان واحد.", "st": "مشروع منجز", "h2c": "الأدوات التي أستخدمها", "sc": "التقنيات", "h2d": "عندك مشروع في بالك؟", "ep": "قل لي ما تحتاجه ونبنيه معًا.", "ft": "تصميم تجريبي مبني على jamelali.com وjidev.site"}, "fr": {"nav1": "Services", "nav2": "Projets", "nav3": "Outils", "tag": "Développeur Full Stack", "h1": "Je crée des produits <em>numériques</em> qui <span>servent</span> votre activité.", "sub": "Plateformes web sur mesure, systèmes de caisse et boutiques en ligne. Code propre en Laravel, React et MySQL, conçu pour la vitesse et la croissance.", "cta1": "Démarrer un projet", "cta2": "Voir les projets", "h2a": "Ce que je fais", "sa": "Services", "s1t": "Développement web sur mesure", "s1p": "Applications web rapides, sécurisées et évolutives, adaptées à votre façon de travailler.", "s2t": "E-commerce", "s2p": "Boutiques en ligne avec gestion des stocks et paiements sécurisés.", "s3t": "Conception de bases de données", "s3p": "Bases de données relationnelles optimisées, rapides même quand vos données grandissent.", "s4t": "Plateformes multilingues", "s4p": "Plateformes conçues pour servir les utilisateurs dans plusieurs langues.", "h2b": "Projets sélectionnés", "sb": "Projets", "w1t": "Caisse et gestion des ventes", "w1p": "Factures, stocks et rapports de ventes. PHP, Laravel, Vue.js", "w2t": "Plateforme e-commerce", "w2p": "Plateforme de boutique en ligne.", "w3t": "Tableau de bord CRM (SaaS)", "w3p": "Gérez vos clients au même endroit.", "st": "Projets réalisés", "h2c": "Mes outils", "sc": "Stack", "h2d": "Un projet en tête ?", "ep": "Dites-moi ce dont vous avez besoin, on le construit.", "ft": "Design exemple basé sur jamelali.com et jidev.site"}};
+var D={};document.querySelectorAll("[data-t]").forEach(function(e){D[e.dataset.t]=e.innerHTML});T.en=D;
+function setL(l){var t=T[l];document.querySelectorAll("[data-t]").forEach(function(e){e.innerHTML=t[e.dataset.t]});
+document.documentElement.lang=l;document.documentElement.dir=l=="ar"?"rtl":"ltr";
+document.querySelectorAll(".lg button").forEach(function(b){b.classList.toggle("on",b.dataset.l==l)});
+try{localStorage.setItem("lang",l)}catch(e){}}
+document.querySelectorAll(".lg button").forEach(function(b){b.onclick=function(){setL(b.dataset.l)}});
+var q=(location.search.match(/lang=(en|ar|fr)/)||[])[1],sv;try{sv=localStorage.getItem("lang")}catch(e){}
+setL(q||sv||"en");
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+</script>
 </body>
 </html>
